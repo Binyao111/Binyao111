@@ -3,7 +3,7 @@
   <img src="assets/hero_light.png" alt="Binyao Guo. AI for PDEs, neural operators, differentiable scientific computing. A Cahn–Hilliard phase field drawn on 32², 64², 128² and 256² grids." width="100%">
 </picture>
 
-I am a PhD researcher at the University of Minnesota, advised by [Prof. QiZhi He](https://cse.umn.edu/cege/faculty/qizhi-he) in the [Intelligent Mechanics Lab](https://github.com/IntelligentMechanicsLab). I develop neural operators, reduced-order models, and differentiable solvers for physical simulation, and I connect the learned models with numerical methods so they can be checked against PDE and mechanics benchmarks. Most of my work is in Python, JAX, and PyTorch. I am also interested in topology optimization, data-driven mechanics, physics-informed machine learning, and computer vision for physical environments.
+I am a PhD researcher at the University of Minnesota, advised by [Prof. QiZhi He](https://qzhe.umn.edu/) in the [Intelligent Mechanics Lab](https://github.com/IntelligentMechanicsLab). I develop neural operators, reduced-order models, and differentiable solvers for physical simulation, and I connect the learned models with numerical methods so they can be checked against PDE and mechanics benchmarks. Most of my work is in Python, JAX, and PyTorch. I am also interested in topology optimization, data-driven mechanics, physics-informed machine learning, and computer vision for physical environments.
 
 I am also pursuing an M.S. in Computer Science at Minnesota. Before that I earned an M.S. at the University of Illinois Urbana-Champaign (2023) and a dual-degree B.Eng. from the University of Leeds and Southwest Jiaotong University (2021). I hold a UMN Data Science Initiative ADC Graduate Fellowship (2025).
 
