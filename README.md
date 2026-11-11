@@ -23,7 +23,7 @@
 - 🧠 I build **neural operators and latent surrogates** for physical simulation, from path-dependent plasticity to electromagnetic waveguides and phase-field PDEs.
 - 🔧 I couple learned models with **differentiable solvers** (JAX-FEM, RKPM, neural-integrated meshfree) so they can run inside real simulations.
 - 🏫 Previously: M.S. Structural Engineering @ **UIUC**; B.Eng. Civil Engineering (dual degree) @ **University of Leeds** (First-Class) & **Southwest Jiaotong University**.
-- 🏆 UMN Data Science Initiative ADC Graduate Fellowship (2025) · DOE Genesis Mission Hackathon @ Argonne National Laboratory (2026).
+- 🏆 UMN Data Science Initiative ADC Graduate Fellowship (2025).
 
 ---
 
@@ -32,27 +32,27 @@
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>⚡ Electromagnetic Waveguide Surrogate</h4>
-      <img src="assets/em_waveguide.png" alt="ANSYS HFSS electric-field maps of empty and dielectric-loaded waveguides, and HFSS vs. autoencoder surrogate prediction" width="100%"/>
-      <sub>Convolutional autoencoder + frequency→latent mapper trained on <b>ANSYS HFSS</b> field data. With only <b>6 latent variables</b>, interpolation error is <b>1.86%</b> (empty) and <b>4.33%</b> (dielectric-loaded) for cylindrical waveguides.</sub>
-    </td>
-    <td width="50%" valign="top">
       <h4>🌊 SANO: Spectral Autoencoding Neural Operator</h4>
       <img src="assets/sano_cahn_hilliard.gif" alt="Animated Cahn–Hilliard phase-field evolution: ground truth vs. SANO autoregressive latent rollout" width="100%"/>
       <img src="assets/sano_cross_resolution.png" alt="Zero-shot SANO decoding of one latent vector on 32², 64², 128² and 256² grids" width="100%"/>
       <sub>Discretization-consistent nonlinear reduced representations. <b>Top:</b> autoregressive Cahn–Hilliard rollout in latent space. <b>Bottom:</b> one latent code decoded zero-shot on <b>32²–256²</b> grids. Wave-equation trajectory error <b>0.4353 → 0.1914</b> vs. RONOM.</sub>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <h4>🧱 HANO: History-Aware Neural Operator</h4>
       <img src="assets/hano.png" alt="HANO architecture (Fourier and attention-enhanced U-Net/Fourier layers) and stress–strain loops predicted from mid-history starts by HANO vs. a recurrent baseline" width="100%"/>
       <sub>Autoregressive U-Net + Fourier neural operator + attention for path-dependent plasticity. Starting predictions mid-history (red dot), HANO tracks the hysteresis loop while a recurrent baseline drifts. Stress NRMSE <b>2.3% → 0.6%</b>. First author, <i>CMAME</i> 2025 · <a href="https://github.com/IntelligentMechanicsLab/HANO_inelasticity">code</a>.</sub>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <h4>🔁 Learned Plasticity inside JAX-FEM</h4>
       <img src="assets/hano_jaxfem.png" alt="Plate with a hole: reference vs. HANO-coupled JAX-FEM stress fields (σxx, σyy) and absolute error" width="100%"/>
       <sub>HANO embedded as the constitutive model in nonlinear <b>JAX-FEM</b> solves (Newton, Jacobian-vector products, GMRES, line search). Shown: plate-with-hole stresses. In a cyclic J2-plasticity test it converged over <b>18 load increments</b> with final errors of <b>2.90%</b> stress, <b>1.05%</b> displacement, and <b>0.96%</b> reaction force. <i>(NSF project)</i></sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>⚡ Electromagnetic Waveguide Surrogate</h4>
+      <img src="assets/em_waveguide.png" alt="ANSYS HFSS electric-field maps of empty and dielectric-loaded waveguides, and HFSS vs. autoencoder surrogate prediction" width="100%"/>
+      <sub>Convolutional autoencoder + frequency→latent mapper trained on <b>ANSYS HFSS</b> field data. With only <b>6 latent variables</b>, interpolation error is <b>1.86%</b> (empty) and <b>4.33%</b> (dielectric-loaded) for cylindrical waveguides.</sub>
     </td>
   </tr>
   <tr>
@@ -76,9 +76,41 @@
 - 🕸️ **Differentiable Neural-Integrated Meshfree (NIM)** method for finite-strain hyperelasticity, forward and inverse (2nd author, <i>Engineering with Computers</i> 2025).
 - 🧮 **Differentiable RKPM solver** in JAX, developed alongside the HANO coupling work.
 - 🚀 **NSRI: generative Bayesian learning for hypersonic flowfields.** A latent diffusion model generates 2D hypersonic cylinder flowfields as a learned prior for sparse-observation inference.
-- 🏢 **UIUC:** point-cloud quality assessment for 3D-printed concrete; U-Net crack segmentation + structure-from-motion for 2D-to-3D crack localization.
 
 </details>
+
+---
+
+### 🏛️ Master's research @ UIUC (2021–2023)
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🖨️ 3D-Printed Concrete QA via Point Clouds <sub>(M.S. thesis)</sub></h4>
+      <img src="assets/uiuc_3dcp_qa.png" alt="Workflow: design CAD model and 3D-printed concrete component, photogrammetry/LiDAR capture, 3D point cloud, as-built deviation heatmaps, detected surface defects and segmented layers, QA metrics" width="100%"/>
+      <sub>Photogrammetry/LiDAR point clouds compared against the design shape using distance, surface-normal and curvature errors. Surface defects are back-projected from 2D pixels onto the 3D model, and layer-dimension consistency is used to assess print uniformity.</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>📐 Crack-Width Measurement vs. Camera Angle</h4>
+      <img src="assets/uiuc_crack_angle.png" alt="Camera geometry model for rotated views of a crack, and measured vs. theoretical crack-width error as a function of rotation angle" width="100%"/>
+      <sub>Structure-from-motion digital twins of cracks, re-imaged with a programmed virtual camera in Open3D at different angles. A theoretical projection model of the width error agrees with the measurements.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🚁 UAV Inspection Planning in Simulation</h4>
+      <img src="assets/uiuc_uav_inspection.jpg" alt="AirSim bridge model with synthetic cracks; a virtual inspection image and its U-Net crack segmentation" width="100%"/>
+      <sub>Data-driven planning of robotic bridge inspections. Cracks are added to a bridge model automatically, a virtual UAV flies candidate paths in <b>AirSim</b>, and YOLO + <b>U-Net</b> localize and segment the cracks. Defects are then mapped to 3D with SfM and scored with quantitative metrics. <i>(Computing in Civil Engineering 2023)</i></sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🧮 PINN Surrogate for Plate Bending</h4>
+      <img src="assets/uiuc_pinn_plate.png" alt="2D plate under distributed load, with analytical, PINN-predicted, and error deflection fields" width="100%"/>
+      <sub>A physics-informed neural network learns the bending of a 2D linear-elastic plate under distributed load. It matches the analytical and Abaqus solutions closely, and transfer learning (changing the load magnitude) makes it a fast surrogate for sensitivity analysis.</sub>
+    </td>
+  </tr>
+</table>
+
+Also at UIUC: **Digital twin of a cracked pile.** U-Net pixel-level crack detection, an SfM point cloud, 2D-to-3D back-projection, and parameter-free DBSCAN denoising. **Eye-tracking + mixed-reality platform** for digitizing human visual inspections *(Structures Congress 2023)*. More on my [website](https://binyaoguo.wordpress.com/current-projects/).
 
 ---
 
