@@ -1,139 +1,89 @@
-<p align="center">
-  <img src="assets/banner.png" alt="Binyao Guo — Computational Physics · Electromagnetic Surrogates · Neural Operators" width="100%"/>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero_dark.png">
+  <img src="assets/hero_light.png" alt="Binyao Guo. AI for PDEs, neural operators, differentiable scientific computing. A Cahn–Hilliard phase field drawn on 32², 64², 128² and 256² grids." width="100%">
+</picture>
 
-<p align="center">
-  <a href="https://github.com/Binyao111">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=00B4DB&center=true&vCenter=true&width=720&lines=Neural+operators+for+PDEs+%26+path-dependent+materials;Discretization-consistent+spectral+autoencoders;Electromagnetic+surrogates+from+ANSYS+HFSS;Differentiable+FEM+%2F+meshfree+solvers+in+JAX" alt="Neural operators for PDEs and path-dependent materials · Discretization-consistent spectral autoencoders · Electromagnetic surrogates from ANSYS HFSS · Differentiable FEM / meshfree solvers in JAX"/>
-  </a>
-</p>
+I am a PhD researcher at the University of Minnesota, advised by Prof. QiZhi He in the [Intelligent Mechanics Lab](https://github.com/IntelligentMechanicsLab). I develop neural operators, reduced-order models, and differentiable solvers for physical simulation, and I connect the learned models with numerical methods so they can be checked against PDE and mechanics benchmarks. Most of my work is in Python, JAX, and PyTorch.
 
-<p align="center">
-  <a href="mailto:guo00544@umn.edu"><img src="https://img.shields.io/badge/Email-guo00544%40umn.edu-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"/></a>
-  <a href="https://binyaoguo.wordpress.com/"><img src="https://img.shields.io/badge/Website-binyaoguo.wordpress.com-21759B?style=flat-square&logo=wordpress&logoColor=white" alt="Website"/></a>
-  <a href="https://github.com/IntelligentMechanicsLab"><img src="https://img.shields.io/badge/Lab-IntelligentMechanicsLab-181717?style=flat-square&logo=github&logoColor=white" alt="Intelligent Mechanics Lab"/></a>
-  <img src="https://img.shields.io/badge/Minneapolis%2C%20MN-University%20of%20Minnesota-7A0019?style=flat-square" alt="University of Minnesota"/>
-</p>
+I am also pursuing an M.S. in Computer Science at Minnesota. Before that I earned an M.S. at the University of Illinois Urbana-Champaign (2023) and a dual-degree B.Eng. from the University of Leeds and Southwest Jiaotong University (2021). I hold a UMN Data Science Initiative ADC Graduate Fellowship (2025).
 
----
+Write to me at [guo00544@umn.edu](mailto:guo00544@umn.edu), or find more on my [website](https://binyaoguo.wordpress.com/).
 
-### 👋 About me
+## Selected research
 
-- 🎓 **Ph.D. student in Civil Engineering** at the **University of Minnesota** (advisor: Prof. QiZhi He), also pursuing an **M.S. in Computer Science** at UMN.
-- 🧠 I build **neural operators and latent surrogates** for physical simulation, from path-dependent plasticity to electromagnetic waveguides and phase-field PDEs.
-- 🔧 I couple learned models with **differentiable solvers** (JAX-FEM, RKPM, neural-integrated meshfree) so they can run inside real simulations.
-- 🏫 Previously: M.S. Structural Engineering @ **UIUC**; B.Eng. Civil Engineering (dual degree) @ **University of Leeds** (First-Class) & **Southwest Jiaotong University**.
-- 🏆 UMN Data Science Initiative ADC Graduate Fellowship (2025).
+### SANO: PDE model reduction across resolutions
 
----
+<img src="assets/sano_cahn_hilliard.gif" alt="Animated Cahn–Hilliard phase-field evolution: ground truth next to the SANO latent rollout" width="520">
 
-### 🔬 Research highlights
+<img src="assets/sano_cross_resolution.png" alt="One SANO latent code decoded without retraining on 32², 64², 128² and 256² grids" width="100%">
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>🌊 SANO: Spectral Autoencoding Neural Operator</h4>
-      <img src="assets/sano_cahn_hilliard.gif" alt="Animated Cahn–Hilliard phase-field evolution: ground truth vs. SANO autoregressive latent rollout" width="100%"/>
-      <img src="assets/sano_cross_resolution.png" alt="Zero-shot SANO decoding of one latent vector on 32², 64², 128² and 256² grids" width="100%"/>
-      <sub>Discretization-consistent nonlinear reduced representations. <b>Top:</b> autoregressive Cahn–Hilliard rollout in latent space. <b>Bottom:</b> one latent code decoded zero-shot on <b>32²–256²</b> grids. Wave-equation trajectory error <b>0.4353 → 0.1914</b> vs. RONOM.</sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>🧱 HANO: History-Aware Neural Operator</h4>
-      <img src="assets/hano.png" alt="HANO architecture (Fourier and attention-enhanced U-Net/Fourier layers) and stress–strain loops predicted from mid-history starts by HANO vs. a recurrent baseline" width="100%"/>
-      <sub>Autoregressive U-Net + Fourier neural operator + attention for path-dependent plasticity. Starting predictions mid-history (red dot), HANO tracks the hysteresis loop while a recurrent baseline drifts. Stress NRMSE <b>2.3% → 0.6%</b>. First author, <i>CMAME</i> 2025 · <a href="https://github.com/IntelligentMechanicsLab/HANO_inelasticity">code</a>.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>🔁 Learned Plasticity inside JAX-FEM</h4>
-      <img src="assets/hano_jaxfem.png" alt="Plate with a hole: reference vs. HANO-coupled JAX-FEM stress fields (σxx, σyy) and absolute error" width="100%"/>
-      <sub>HANO embedded as the constitutive model in nonlinear <b>JAX-FEM</b> solves (Newton, Jacobian-vector products, GMRES, line search). Shown: plate-with-hole stresses. In a cyclic J2-plasticity test it converged over <b>18 load increments</b> with final errors of <b>2.90%</b> stress, <b>1.05%</b> displacement, and <b>0.96%</b> reaction force. <i>(NSF project)</i></sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>⚡ Electromagnetic Waveguide Surrogate</h4>
-      <img src="assets/em_waveguide.png" alt="ANSYS HFSS electric-field maps of empty and dielectric-loaded waveguides, and HFSS vs. autoencoder surrogate prediction" width="100%"/>
-      <sub>Convolutional autoencoder + frequency→latent mapper trained on <b>ANSYS HFSS</b> field data. With only <b>6 latent variables</b>, interpolation error is <b>1.86%</b> (empty) and <b>4.33%</b> (dielectric-loaded) for cylindrical waveguides.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>🪨 DOE Genesis: Pore-Network Dissolution</h4>
-      <img src="assets/genesis_clusters.png" alt="Grid of pore-network dissolution patterns clustered into five groups (G1–G5) using PCA and shape features" width="100%"/>
-      <sub>AI-guided critical-mineral extraction. 80 PCA coefficients + 5 morphology features with K-means (<b>K = 5</b>) organize <b>1,881</b> dissolution simulations into pattern families, from compact and uniform dissolution to wormholes and ramified branches.</sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>🏗️ Neural Topology Optimization (NTO-PCO)</h4>
-      <img src="assets/topology_optimization.png" alt="Neural topology optimization framework (CNN reparameterization + PyGRANSO), optimized MBB beam, bridge and L-shape designs, and a multi-material bridge" width="100%"/>
-      <sub>CNN reparameterization of the design field, solved with principled constrained optimization (<b>PyGRANSO</b>) under physics, volume, and combinatorial constraints. Extends to <b>multi-material</b> designs. Co-author.</sub>
-    </td>
-  </tr>
-</table>
+The Spectral Autoencoding Neural Operator compresses PDE fields by reducing their spectral degrees of freedom. Hierarchical Fourier-mode reduction, spectral resampling, and projected nonlinear layers remove the fixed-grid dependence of convolutional autoencoders and reduce aliasing. On Navier–Stokes, advection, Cahn–Hilliard, and Darcy fields, one trained model gives consistent outputs and latent codes on 32² to 256² grids. Extended to variational field generation and latent dynamics, it lowers the Wave-equation trajectory error from 0.4353 to 0.1914 (56%) against RONOM at matched latent dimension.
 
-<details>
-<summary><b>More projects</b></summary>
-<br/>
+<sub>Top: Cahn–Hilliard rollout, ground truth and SANO. Bottom: a single latent code decoded on four grids.</sub>
 
-- 🕸️ **Differentiable Neural-Integrated Meshfree (NIM)** method for finite-strain hyperelasticity, forward and inverse (2nd author, <i>Engineering with Computers</i> 2025).
-- 🧮 **Differentiable RKPM solver** in JAX, developed alongside the HANO coupling work.
-- 🚀 **NSRI: generative Bayesian learning for hypersonic flowfields.** A latent diffusion model generates 2D hypersonic cylinder flowfields as a learned prior for sparse-observation inference.
+### HANO: learning path-dependent materials from short histories
 
-</details>
+<img src="assets/hano.png" alt="HANO architecture with Fourier layers and attention-enhanced U-Net Fourier layers, and stress–strain loops predicted from a mid-history start by HANO and by a recurrent baseline" width="640">
 
----
+Recurrent material models are sensitive to the loading-step size and need a prescribed initial hidden state. The History-Aware Neural Operator avoids both by predicting stress from a short, observable strain–stress history, using an autoregressive U-Net, Fourier neural operator, and attention architecture trained with a decaying teacher-forcing schedule. In kinematic-hardening elastoplasticity it lowers the stress NRMSE from 2.3% to 0.6% against the best recurrent baseline. It was also evaluated on irregular histories, noisy data, and anisotropic damage.
 
-### 🏛️ Master's research @ UIUC (2021–2023)
+First author, *Computer Methods in Applied Mechanics and Engineering* 447, 118358 (2025). [Paper](https://doi.org/10.1016/j.cma.2025.118358), [arXiv](https://arxiv.org/abs/2506.10352), [code](https://github.com/IntelligentMechanicsLab/HANO_inelasticity).
+
+### Neural topology optimization with constrained optimization
+
+<img src="assets/topology_optimization.png" alt="Neural topology optimization framework with a CNN reparameterization and PyGRANSO, optimized MBB beam, bridge and L-shape designs, and a multimaterial bridge" width="600">
+
+A neural network represents the material density, and compliance is minimized under volume and binary-design constraints with principled constrained optimization (PyGRANSO). I worked on the constraint handling and extended the framework to multimaterial design.
+
+R. Devera, B. Guo, B. Liang, Q. He, and J. Sun. Preprint, 2026.
+
+### JAX-NIM: a differentiable meshfree solver with a learned constitutive model
+
+<img src="assets/jax_nim.jpg" alt="JAX-NIM reference solve of a plate with a hole under cyclic J2 plasticity: meshfree nodes, equivalent plastic strain, reaction–displacement loop; and the coupled HANO + NIM stress field compared with the reference" width="100%">
+
+A local-support, sparse reproducing kernel particle method written in JAX. Element tangents are batched with `vmap`, essential boundary conditions are imposed through sparse KKT constraints, and the solve runs on the GPU in double precision. For a plate with a hole under cyclic J2 plasticity with kinematic hardening, the reference solve converges in all 50 load increments (428 nodes, 5,446 integration points, about 60 s). With HANO as the constitutive model inside the same Newton solve, the coupled stress field at the cycle-2 negative peak stays within 1.58% relative L2 of the reference. Part of an NSF project on differentiable solvers and neural constitutive models.
+
+## Other PhD projects
+
+<img src="assets/other_phd_work.jpg" alt="Thumbnails: ANSYS HFSS electric field in two waveguides, and two pore-network dissolution patterns" width="560">
+
+- **Electromagnetic field surrogates.** A convolutional autoencoder with a frequency-to-latent regressor, trained on analytical waveguide solutions and ANSYS HFSS fields. With six latent variables the interpolation error is 1.86% for empty and 4.33% for dielectric-loaded waveguides.
+- **DOE Genesis Mission: AI-guided critical mineral extraction.** PCA and autoencoder representations of pore-network dissolution and precipitation fields, with clustering and supervised models relating latent regimes, clogging labels, and reaction–transport parameters.
+- **NSRI: generative learning for hypersonic flowfields.** A latent diffusion model trained to generate 2D hypersonic cylinder flowfields, as a learned prior for Bayesian inference from sparse observations.
+- **HANO inside JAX-FEM (NSF).** Nonlinear equilibrium solves with Newton iterations, Jacobian-vector products, GMRES, and line search. In a single cyclic J2-plasticity test over 18 load increments, the final-state errors were 2.90% in stress, 1.05% in displacement, and 0.96% in reaction force.
+- **Differentiable neural-integrated meshfree method.** Architecture variants, including CNN replacements for dense networks, for forward and inverse finite-strain hyperelasticity (second author, *Engineering with Computers*, 2025).
+
+## Earlier work: computer vision and 3D geometry
+
+At the University of Illinois Urbana-Champaign (2021–2023).
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🖨️ 3D-Printed Concrete QA via Point Clouds <sub>(M.S. thesis)</sub></h4>
-      <img src="assets/uiuc_3dcp_qa.png" alt="Workflow: design CAD model and 3D-printed concrete component, photogrammetry/LiDAR capture, 3D point cloud, as-built deviation heatmaps, detected surface defects and segmented layers, QA metrics" width="100%"/>
-      <sub>Photogrammetry/LiDAR point clouds compared against the design shape using distance, surface-normal and curvature errors. Surface defects are back-projected from 2D pixels onto the 3D model, and layer-dimension consistency is used to assess print uniformity.</sub>
+      <b>3D-printed concrete quality assessment from point clouds</b><br>
+      <img src="assets/uiuc_3dcp_qa.png" alt="Workflow from the design model and printed part, through photogrammetry and LiDAR capture, to point-cloud deviation maps, detected surface defects, and segmented layers" width="100%"><br>
+      <sub>Photogrammetry and LiDAR point clouds are compared with the design geometry through distance, surface-normal, and curvature errors. Defects segmented in 2D images are back-projected onto the 3D model. M.S. thesis.</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>📐 Crack-Width Measurement vs. Camera Angle</h4>
-      <img src="assets/uiuc_crack_angle.png" alt="Camera geometry model for rotated views of a crack, and measured vs. theoretical crack-width error as a function of rotation angle" width="100%"/>
-      <sub>Structure-from-motion digital twins of cracks, re-imaged with a programmed virtual camera in Open3D at different angles. A theoretical projection model of the width error agrees with the measurements.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>🚁 UAV Inspection Planning in Simulation</h4>
-      <img src="assets/uiuc_uav_inspection.jpg" alt="AirSim bridge model with synthetic cracks; a virtual inspection image and its U-Net crack segmentation" width="100%"/>
-      <sub>Data-driven planning of robotic bridge inspections. Cracks are added to a bridge model automatically, a virtual UAV flies candidate paths in <b>AirSim</b>, and YOLO + <b>U-Net</b> localize and segment the cracks. Defects are then mapped to 3D with SfM and scored with quantitative metrics. <i>(Computing in Civil Engineering 2023)</i></sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>🧮 PINN Surrogate for Plate Bending</h4>
-      <img src="assets/uiuc_pinn_plate.png" alt="2D plate under distributed load, with analytical, PINN-predicted, and error deflection fields" width="100%"/>
-      <sub>A physics-informed neural network learns the bending of a 2D linear-elastic plate under distributed load. It matches the analytical and Abaqus solutions closely, and transfer learning (changing the load magnitude) makes it a fast surrogate for sensitivity analysis.</sub>
+      <b>UAV inspection planning in simulation</b><br>
+      <img src="assets/uiuc_uav_inspection.jpg" alt="Simulated structure with synthetic cracks in AirSim, a virtual UAV image, and its U-Net crack segmentation" width="100%"><br>
+      <sub>A virtual UAV flies candidate paths in AirSim over a model with synthetic cracks. YOLO and U-Net find and segment the defects, structure-from-motion maps them to 3D, and path planning trades coverage against travel distance.</sub>
     </td>
   </tr>
 </table>
 
-Also at UIUC: **Digital twin of a cracked pile.** U-Net pixel-level crack detection, an SfM point cloud, 2D-to-3D back-projection, and parameter-free DBSCAN denoising. **Eye-tracking + mixed-reality platform** for digitizing human visual inspections *(Structures Congress 2023)*. More on my [website](https://binyaoguo.wordpress.com/current-projects/).
+More details are on my [website](https://binyaoguo.wordpress.com/current-projects/).
 
----
+## Publications
 
-### 📄 Selected publications
+- **B. Guo**, Z. Lin, and Q. He. History-Aware Neural Operator: Robust Data-Driven Constitutive Modeling of Path-Dependent Materials. *Computer Methods in Applied Mechanics and Engineering* 447, 118358, 2025. [Paper](https://doi.org/10.1016/j.cma.2025.118358), [arXiv](https://arxiv.org/abs/2506.10352)
+- H. Du, **B. Guo**, and Q. He. Differentiable Neural-Integrated Meshfree Method for Forward and Inverse Modeling of Finite Strain Hyperelasticity. *Engineering with Computers* 41, 1597–1617, 2025. [Paper](https://doi.org/10.1007/s00366-024-02090-z), [arXiv](https://arxiv.org/abs/2407.11183)
+- R. Devera, **B. Guo**, B. Liang, Q. He, and J. Sun. Neural Topology Optimization with Principled Constrained Optimization. Preprint, 2026.
 
-- **B. Guo**, Z. Lin, Q. He. *History-Aware Neural Operator: Robust Data-Driven Constitutive Modeling of Path-Dependent Materials.* **Computer Methods in Applied Mechanics and Engineering** 447 (2025). [[DOI]](https://doi.org/10.1016/j.cma.2025.118358) [[arXiv]](https://arxiv.org/abs/2506.10352) [[code]](https://github.com/IntelligentMechanicsLab/HANO_inelasticity)
-- H. Du, **B. Guo**, Q. He. *Differentiable Neural-Integrated Meshfree Method for Forward and Inverse Modeling of Finite Strain Hyperelasticity.* **Engineering with Computers** 41, 1597–1617 (2025). [[DOI]](https://doi.org/10.1007/s00366-024-02090-z) [[arXiv]](https://arxiv.org/abs/2407.11183)
-- **B. Guo**, Q. He. *Spectral Autoencoding Neural Operator (SANO): Discretization-Consistent Nonlinear Reduced Representations of Scientific Fields.* Manuscript.
-- R. Devera, **B. Guo**, B. Liang, Q. He, J. Sun. *Neural Topology Optimization with Principled Constrained Optimization.* Manuscript.
-- S. Dietterich, **B. Guo**, S. Hanany, Q. He. *Advancing Data-Driven Electromagnetics Simulations with the Convolutional Auto-Encoder.* In preparation.
-- Y. Zhao, **B. Guo**, I. Aziz, M. Alipour. *An Optimization Framework for UAS-Based Infrastructure Inspection Path Planning.* **Computing in Civil Engineering 2023**, 890–898.
-- Y. Zhao, **B. Guo**, H. Che, M. Alipour. *Developing Human Sensing Platforms for Digitizing Visual Inspections of Critical Infrastructure.* **Structures Congress 2023**, 340–353.
+Earlier: two 2023 conference papers on UAV inspection path planning and on human sensing platforms for visual inspection, and an M.S. thesis on point-cloud quality assessment of 3D-printed concrete (UIUC, 2023).
 
----
+## Tools
 
-### 🛠️ Toolbox
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/JAX-5E97F6?style=for-the-badge" alt="JAX"/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
-  <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white" alt="MATLAB"/>
-  <img src="https://img.shields.io/badge/ANSYS%20HFSS-FFB71B?style=for-the-badge&logo=ansys&logoColor=black" alt="ANSYS HFSS"/>
-  <img src="https://img.shields.io/badge/Abaqus-005386?style=for-the-badge&logo=dassaultsystemes&logoColor=white" alt="Abaqus"/>
-  <img src="https://img.shields.io/badge/FEM%20%2F%20RKPM-2C5364?style=for-the-badge" alt="FEM / RKPM"/>
-</p>
+**Programming and frameworks.** Python, JAX, PyTorch, MATLAB, automatic differentiation.<br>
+**Numerical methods.** FEM, RKPM, Newton methods, JVP and GMRES, Fourier representations, PCA and POD, nonlinear mechanics, ANSYS HFSS, Abaqus.<br>
+**Scientific machine learning.** Neural operators, autoencoders and VAEs, latent diffusion, Neural ODE surrogates, autoregressive training, cross-resolution evaluation.
