@@ -129,4 +129,4 @@ Related paper: publication 7 below.
 
 **Programming and frameworks.** Python, JAX, PyTorch, MATLAB, automatic differentiation.<br>
 **Numerical methods.** FEM, RKPM, Newton methods, JVP and GMRES, Fourier representations, PCA and POD, nonlinear mechanics, ANSYS HFSS, Abaqus.<br>
-**Scientific machine learning.** Neural operators, autoencoders and VAEs, latent diffusion, Neural ODE surrogates, autoregressive training, cross-resolution evaluation.
+**Scientific machine learning.** Neural operators, autoencoders and VAEs, latent diffusion, Neural ODE surrogates, autoregressive training, cross-resolution evaluation.<img src="https://komarev.com/ghpvc/?username=Binyao111" width="0" height="0" alt="">
