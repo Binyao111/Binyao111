@@ -1,9 +1,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero_dark.png">
-  <img src="assets/hero_light.png" alt="Binyao Guo. AI for PDEs, neural operators, differentiable scientific computing. A Cahn–Hilliard phase field drawn on 32², 64², 128² and 256² grids." width="100%">
+  <img src="assets/hero_light.png" alt="Binyao Guo. Computational science: scientific machine learning, neural operators, differentiable simulation. A Cahn–Hilliard phase field drawn on 32², 64², 128² and 256² grids." width="100%">
 </picture>
 
-I am a PhD researcher at the University of Minnesota, advised by [Prof. QiZhi He](https://qzhe.umn.edu/) in the [Intelligent Mechanics Lab](https://github.com/IntelligentMechanicsLab). I develop neural operators, reduced-order models, and differentiable solvers for physical simulation, and I connect the learned models with numerical methods so they can be checked against PDE and mechanics benchmarks. Most of my work is in Python, JAX, and PyTorch. I am also interested in topology optimization, data-driven mechanics, physics-informed machine learning, and computer vision for physical environments.
+I am a computational scientist and PhD researcher at the University of Minnesota, advised by [Prof. QiZhi He](https://qzhe.umn.edu/) in the [Intelligent Mechanics Lab](https://github.com/IntelligentMechanicsLab). I build neural operators, reduced-order models, and differentiable solvers for physical simulation, and I couple the learned models with numerical methods so they can be tested against classical PDE solvers. Applications range from fluid flow and phase separation to wave propagation, electromagnetics, and path-dependent solid mechanics. Most of my work is in Python, JAX, and PyTorch. I am also interested in physics-informed machine learning, topology optimization, data-driven constitutive modeling, and 3D computer vision.
 
 I am also pursuing an M.S. in Computer Science at Minnesota. Before that I earned an M.S. at the University of Illinois Urbana-Champaign (2023) and a dual-degree B.Eng. from the University of Leeds and Southwest Jiaotong University (2021). I hold a UMN Data Science Initiative ADC Graduate Fellowship (2025).
 
@@ -31,7 +31,7 @@ First author, *Computer Methods in Applied Mechanics and Engineering* 447, 11835
 
 ### Neural topology optimization with constrained optimization
 
-<img src="assets/topology_optimization.png" alt="Neural topology optimization framework with a CNN reparameterization and PyGRANSO, optimized MBB beam, bridge and L-shape designs, and a multimaterial bridge" width="600">
+<img src="assets/topology_optimization.png" alt="Neural topology optimization framework with a CNN reparameterization and PyGRANSO, three optimized single-material benchmark designs, and a multimaterial design" width="600">
 
 A neural network represents the material density, and compliance is minimized under volume and binary-design constraints with principled constrained optimization (PyGRANSO). I worked on the constraint handling and extended the framework to multimaterial design.
 
@@ -53,30 +53,30 @@ A local-support, sparse reproducing kernel particle method written in JAX. Eleme
 - **HANO inside JAX-FEM (NSF).** Nonlinear equilibrium solves with Newton iterations, Jacobian-vector products, GMRES, and line search. In a single cyclic J2-plasticity test over 18 load increments, the final-state errors were 2.90% in stress, 1.05% in displacement, and 0.96% in reaction force.
 - **Differentiable neural-integrated meshfree method.** Architecture variants, including CNN replacements for dense networks, for forward and inverse finite-strain hyperelasticity (second author, *Engineering with Computers*, 2025).
 
-## Earlier work: computer vision and 3D geometry
+## Earlier work: 3D vision and robotics
 
 At the University of Illinois Urbana-Champaign (2021–2023).
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <b>3D-printed concrete quality assessment from point clouds</b><br>
-      <img src="assets/uiuc_3dcp_qa.png" alt="Workflow from the design model and printed part, through photogrammetry and LiDAR capture, to point-cloud deviation maps, detected surface defects, and segmented layers" width="100%"><br>
-      <sub>Photogrammetry and LiDAR point clouds are compared with the design geometry through distance, surface-normal, and curvature errors. Defects segmented in 2D images are back-projected onto the 3D model. M.S. thesis.</sub>
+      <b>Point-cloud quality assessment for large-scale additive manufacturing</b><br>
+      <img src="assets/uiuc_pointcloud_qa.png" alt="Workflow from the design model and printed part, through photogrammetry and LiDAR capture, to point-cloud deviation maps, detected surface defects, and segmented layers" width="100%"><br>
+      <sub>Photogrammetry and LiDAR point clouds of a printed part are compared with its design geometry through distance, surface-normal, and curvature errors. Defects segmented in 2D images are back-projected onto the 3D reconstruction. M.S. thesis.</sub>
     </td>
     <td width="50%" valign="top">
-      <b>UAV inspection planning in simulation</b><br>
-      <img src="assets/uiuc_uav_inspection.jpg" alt="Simulated structure with synthetic cracks in AirSim, a virtual UAV image, and its U-Net crack segmentation" width="100%"><br>
-      <sub>A virtual UAV flies candidate paths in AirSim over a model with synthetic cracks. YOLO and U-Net find and segment the defects, structure-from-motion maps them to 3D, and path planning trades coverage against travel distance.</sub>
+      <b>UAV defect detection and path planning in AirSim</b><br>
+      <img src="assets/uiuc_uav_planning.jpg" alt="AirSim scene with synthetic surface cracks, an image from the virtual UAV camera, and its U-Net segmentation" width="100%"><br>
+      <sub>A virtual UAV flies candidate paths through an AirSim scene with synthetic surface cracks. YOLO and U-Net detect and segment the defects, structure-from-motion maps them to 3D, and path planning trades coverage against flight distance.</sub>
     </td>
   </tr>
 </table>
 
 <details>
-<summary><b>3D-printed concrete quality assessment: aims and methods</b></summary>
+<summary><b>Point-cloud quality assessment: aims and methods</b></summary>
 <br>
 
-Large-scale 3D concrete printing still lacks systematic quality control, and the consistency of layer dimensions during printing had not been studied closely. The thesis addresses three questions:
+Large-scale additive manufacturing still lacks systematic, data-driven quality control, and the consistency of layer dimensions during printing had not been studied closely. The thesis addresses three questions:
 
 1. **Global shape.** How closely does the printed part match its intended geometry? The point cloud of the print is compared with the design shape using distance error, normal-angle difference, and curvature error.
 2. **Surface defects.** Where are the defects? They are detected in 2D images, and the defect pixels are back-projected into 3D so they can be inspected and measured on the model.
@@ -87,16 +87,16 @@ Large-scale 3D concrete printing still lacks systematic quality control, and the
 </details>
 
 <details>
-<summary><b>UAV inspection planning: case study</b></summary>
+<summary><b>UAV defect detection and path planning: case study</b></summary>
 <br>
 
-A framework for planning automated robotic inspections by simulating different inspection scenarios and scoring their performance. In the case study, the goal is to choose the best UAV inspection path for a bridge:
+A framework for planning automated robotic data collection by simulating different flight scenarios and scoring their performance. In the case study, the goal is to choose the best UAV flight path for imaging a large 3D scene:
 
-1. A script adds cracks at random locations to the graphic model of the bridge.
+1. A script adds cracks at random locations to a textured 3D model.
 2. The model is imported into AirSim, and a virtual UAV is programmed to fly each candidate path and capture images.
 3. YOLO localizes the cracks in each image, and a U-Net segments them at pixel level.
 4. Structure-from-motion maps the detected defects onto the 3D model.
-5. Quantitative metrics computed on the mapped defects guide the optimization and planning of real inspections.
+5. Quantitative metrics computed on the mapped defects score each path and guide flight planning for real UAV missions.
 
 Related paper: publication 7 below.
 
@@ -118,8 +118,8 @@ Related paper: publication 7 below.
 
 **Conference papers**
 
-7. Y. Zhao, **B. Guo**, I. Aziz, and M. Alipour. An Optimization Framework for UAS-Based Infrastructure Inspection Path Planning. *Computing in Civil Engineering 2023*, 890–898, 2023. [Paper](https://doi.org/10.1061/9780784485248.107)
-8. Y. Zhao, **B. Guo**, H. Che, and M. Alipour. Developing Human Sensing Platforms for Digitizing Visual Inspections of Critical Infrastructure. *Structures Congress 2023*, 340–353, 2023. [Paper](https://doi.org/10.1061/9780784484777.030)
+7. Y. Zhao, **B. Guo**, I. Aziz, and M. Alipour. An Optimization Framework for UAS-Based Infrastructure Inspection Path Planning. *ASCE i3CE 2023*, 890–898, 2023. [Paper](https://doi.org/10.1061/9780784485248.107)
+8. Y. Zhao, **B. Guo**, H. Che, and M. Alipour. Developing Human Sensing Platforms for Digitizing Visual Inspections of Critical Infrastructure. *ASCE Conference Proceedings*, 340–353, 2023. [Paper](https://doi.org/10.1061/9780784484777.030)
 
 **Thesis**
 
